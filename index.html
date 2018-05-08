@@ -9,12 +9,6 @@
 <body>
 
 <div id="app">
-  <!--
-  <p>{{count}}</p>
-  <button v-on:click='countUp'>click me</button>
-  <input type="" v-model='text'>
-  <p>{{text}}</p>
-  -->
   <ul v-for='item in lists'>
     <li v-bind:class='{done: item.doneFlg}' v-on:click='changeDoneFlg(item)'>{{item.title}}</li>
   </ul>
@@ -41,6 +35,8 @@ var app = new Vue({
     }
   }
 })
+/** vueのdataの中にobserverがあるのを確認 */
+console.log(app);
 </script>
 </body>
 </html>
