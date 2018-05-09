@@ -9,34 +9,11 @@
 <body>
 
 <div id="app">
-  <ul v-for='item in lists'>
-    <li v-bind:class='{done: item.doneFlg}' v-on:click='changeDoneFlg(item)'>{{item.title}}</li>
-  </ul>
-</div>  <!-- {{ message }} が Vueデータに置換される -->
-
-
+  <my-component></my-component>
+  <my-component></my-component>
+  <my-component></my-component>
+</div>
 <script src="./vue.js"></script>
 <script src="./app.js"></script>
-<script>
-var app = new Vue({
-  el: '#app', /* #app-1 要素に対して Vue を適用する */
-  data: {
-    lists: [
-      {id: 1, title: 'hello1', doneFlg: false},
-      {id: 2, title: 'hello2', doneFlg: false},
-      {id: 3, title: 'hello3', doneFlg: false},
-      {id: 4, title: 'hello4', doneFlg: false}
-    ],
-  }, /* message という名前のデータを定義する */
-  methods: {
-    changeDoneFlg: function(item) {
-      /** itemというobjectを受け取る */
-      item.doneFlg = !item.doneFlg;
-    }
-  }
-})
-/** vueのdataの中にobserverがあるのを確認 */
-console.log(app);
-</script>
 </body>
 </html>
