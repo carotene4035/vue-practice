@@ -1,6 +1,7 @@
 /** コンポーネントの定義 */
 var mycomponent = {
-  template: '<div>hello {{message}}<button v-on:click="count++">You clicked me {{ count }} times.</button></div>',
+  template: '<div>hello {{message}} {{title}}<button v-on:click="count++">You clicked me {{ count }} times.</button></div>',
+  props: ['title'],
   data: function() {
     return {
       message: 'taichi',
