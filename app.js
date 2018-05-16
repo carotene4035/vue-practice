@@ -18,3 +18,4 @@ Vue.component('my-component', mycomponent);
 var app = new Vue({
   el: '#app'
 });
+console.log(app)

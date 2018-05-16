@@ -746,6 +746,11 @@ var Observer = function Observer (value) {
 };
 
 /**
+ * すべてのプロパティをなめて、
+ * それらにgetter, setterをつける
+ *
+ * これは、valueがobjectのときだけ呼ばれる
+ *
  * Walk through each property and convert them into
  * getter/setters. This method should only be called when
  * value type is Object.
@@ -826,6 +831,9 @@ function defineReactive$$1 (
   val,
   customSetter
 ) {
+  console.log(key)
+  console.log(val)
+  console.log('define reactive')
   var dep = new Dep();
 
   var property = Object.getOwnPropertyDescriptor(obj, key);
