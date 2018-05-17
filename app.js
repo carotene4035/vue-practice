@@ -1,6 +1,6 @@
 /** コンポーネントの定義 */
 var mycomponent = {
-  template: '<div>hello {{message}} {{title}}<button v-on:click="count++">You clicked me {{ count }} times.</button></div>',
+  template: '<div>{{title}}<button v-on:click="count++">You clicked me {{ count }} times.</button><input type="text" v-model="message"></div>',
   props: ['title'],
   data: function() {
     return {
@@ -18,4 +18,4 @@ Vue.component('my-component', mycomponent);
 var app = new Vue({
   el: '#app'
 });
-console.log(app)
+// console.log(app)

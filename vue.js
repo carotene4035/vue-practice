@@ -757,6 +757,7 @@ var Observer = function Observer (value) {
  */
 Observer.prototype.walk = function walk (obj) {
   var keys = Object.keys(obj);
+  console.log(keys)
   for (var i = 0; i < keys.length; i++) {
     defineReactive$$1(obj, keys[i], obj[keys[i]]);
   }
@@ -831,10 +832,8 @@ function defineReactive$$1 (
   val,
   customSetter
 ) {
-  console.log(key)
-  console.log(val)
-  console.log('define reactive')
   var dep = new Dep();
+//  console.log(dep);
 
   var property = Object.getOwnPropertyDescriptor(obj, key);
   if (property && property.configurable === false) {
@@ -846,8 +845,14 @@ function defineReactive$$1 (
   var setter = property && property.set;
 
   var childOb = observe(val);
+
+  console.log(obj);
+  console.log('define reactive')
+
   Object.defineProperty(obj, key, {
+    /** 列挙可 */
     enumerable: true,
+    /** 再定義可 */
     configurable: true,
     get: function reactiveGetter () {
       var value = getter ? getter.call(obj) : val;
@@ -860,6 +865,8 @@ function defineReactive$$1 (
           dependArray(value);
         }
       }
+      console.log('getterが走るよ')
+      console.log(value)
       return value
     },
     set: function reactiveSetter (newVal) {
@@ -879,8 +886,12 @@ function defineReactive$$1 (
       }
       childOb = observe(newVal);
       dep.notify();
+      console.log('setterが走るよ')
+      console.log(newVal)
     }
+
   });
+  console.log(obj);
 }
 
 /**
