@@ -832,6 +832,10 @@ function defineReactive$$1 (
   val,
   customSetter
 ) {
+  /*
+   * A dep is an observable that can have multiple
+   * directives subscribing to it.
+   */
   var dep = new Dep();
 //  console.log(dep);
 
@@ -856,8 +860,10 @@ function defineReactive$$1 (
     configurable: true,
     get: function reactiveGetter () {
       var value = getter ? getter.call(obj) : val;
+      console.log(Dep.target)
       if (Dep.target) {
         dep.depend();
+        console.log(Dep.target);
         if (childOb) {
           childOb.dep.depend();
         }

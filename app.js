@@ -1,7 +1,12 @@
 /** コンポーネントの定義 */
 var mycomponent = {
-  template: '<div>{{title}}<button v-on:click="count++">You clicked me {{ count }} times.</button><input type="text" v-model="message"></div>',
+  template: '<div>{{title}} {{data}}<button v-on:click="count++">You clicked me {{ count }} times.</button><input type="text" v-model="message"></div>',
   props: ['title'],
+  computed: {
+    data: function() {
+      return this.message + 'a';
+    }
+  },
   data: function() {
     return {
       message: 'taichi',
