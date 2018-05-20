@@ -862,6 +862,10 @@ function defineReactive$$1 (
       var value = getter ? getter.call(obj) : val;
       console.log(Dep.target)
       if (Dep.target) {
+        /**
+         * dep.dependで、dataプロパティを参照している
+         * 算出プロパティ（watcher）を依存クラスに登録している
+         */
         dep.depend();
         console.log(Dep.target);
         if (childOb) {
@@ -891,6 +895,11 @@ function defineReactive$$1 (
         val = newVal;
       }
       childOb = observe(newVal);
+      /**
+       * 依存クラスに登録されている
+       * watcherにたいして、通知を行う
+       * それぞれのwatcherにたいして再計算が行われる]
+       */
       dep.notify();
       console.log('setterが走るよ')
       console.log(newVal)
