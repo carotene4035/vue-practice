@@ -1,26 +1,16 @@
-/** コンポーネントの定義 */
-var mycomponent = {
-  template: '<div>{{title}} {{data}}<button v-on:click="count++">You clicked me {{ count }} times.</button><input type="text" v-model="message"></div>',
-  props: ['title'],
-  computed: {
-    data: function() {
-      return this.message + 'a';
-    }
-  },
-  data: function() {
-    return {
-      message: 'taichi',
-      count: 0
-    }
-  }
-};
-
-/** コンポーネントの登録 */
-Vue.component('my-component', mycomponent);
-
-
 /** 今後生成されるすべてのvueインスタンスで使えるようになる */
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    a: 0,
+    b: 0
+  },
+  computed: {
+    sum: function() {
+      return parseInt(this.a) + parseInt(this.b);
+    },
+    jou: function() {
+      return this.a * this.a;
+    }
+  }
 });
-// console.log(app)

@@ -6,12 +6,19 @@
 <!-- Vue.js を読み込む -->
 <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-<div id="app">
-  <my-component title='ok go'></my-component>
-</div>
-<script src="./vue.js"></script>
-<script src="./app.js"></script>
+  <div id="app">
+    <div>
+      a: <input type="number" v-model='a'>
+      b: <input type="number" v-model='b'>
+    </div>
+    <div>和：{{ sum }}</div>
+    <div>aの2乗：{{ jou }}</div>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

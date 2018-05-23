@@ -5397,6 +5397,7 @@ function addHandler (
   } else {
     events = el.events || (el.events = {});
   }
+  console.log(events);
   var newHandler = { value: value, modifiers: modifiers };
   var handlers = events[name];
   /* istanbul ignore if */
